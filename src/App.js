@@ -1,7 +1,7 @@
 import './App.css';
 import { useState } from 'react'
 
-import Map from './components/Map'
+import GameController from "./components/GameController";
 
 function App() {
 
@@ -9,7 +9,7 @@ function App() {
 
   return (
     <div>
-      <Map center={center} />
+      <GameController center={center} />
     </div>
   );
 }

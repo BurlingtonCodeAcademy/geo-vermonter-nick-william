@@ -12,13 +12,14 @@ function Map(props) {
       doubleClickZoom={false}
       zoomControl={false}
       touchZoom={false}
+      dragging={false}
       style={{ height: "600px", width: "600px" }}
     >
       <TileLayer
         url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
         attribution="Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community"
       />
-      <Marker position={props.center} />
+      <Marker position={props.mark} />
       <Polygon
         positions={vtOutline}
         pathOptions={{ color: "orange", fillOpacity: 0 }}
