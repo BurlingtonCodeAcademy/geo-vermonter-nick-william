@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import borderData from "../data/border";
 import leafletPip from "leaflet-pip";
 import { geoJSON } from "leaflet";
+import GuessBox from "./GuessBox";
 
 function Info(props) {
   const [score, setScore] = useState(0);
@@ -12,8 +13,11 @@ function Info(props) {
   const [displayLong, setDisplayLong] = useState('???');
   const [county, setCounty] = useState('???');
   const [town, setTown] = useState('???');
+  const [displayCounty, setDisplayCounty] = useState('???');
+  const [displayTown, setDisplayTown] = useState('???');
   const [geo, setGeo] = useState(null);
   const [shouldUpdate, setShouldUpdate] = useState(false);
+  const [guessDepth, setGuessDepth] = useState(-1);
 
   //const [insideBorder, setInsideBorder] = useState(false);
 
@@ -43,8 +47,9 @@ function Info(props) {
     props.mapObj.setView([randLong, randLat],18);
     setDisplayLat('???');
     setDisplayLong('???');
-    setCounty('???');
-    setTown('???');
+    setDisplayCounty('???');
+    setDisplayTown('???');
+    setScore(100);
     setShouldUpdate(true);
     }
   }
@@ -55,25 +60,33 @@ function Info(props) {
     setDisplayLong(long.toPrecision(4));
     console.log(geo);
     console.log('https://nominatim.openstreetmap.org/reverse?lat=' + long + '&lon=' + lat + '&format=json')
+    setDisplayCounty(geo.address.county);
+    setDisplayTown(geo.address.city || geo.address.town || geo.address.village || geo.address.hamlet);
+  }
+
+  function guess() {
+    setGuessDepth(1);
     setCounty(geo.address.county);
-    setTown(geo.address.city || geo.address.town || geo.address.village);
+    setTown(geo.address.city || geo.address.town || geo.address.village || geo.address.hamlet);
   }
 
   return (
-    <div>
+    <div id={'infoBox'}>
       {/*<h3>Mark is inside border: {insideBorder ? 'true' : 'false'}</h3>*/}
-      <p>Lat: {displayLong}, Long: {displayLat}</p>
-      <p>{county}, {town}</p>
-      <div>Direction Buttons</div>
-      <div>
+      <p id={'latLongDisplay'}>Lat: {displayLong}, Long: {displayLat}</p>
+      <p id={'countyTownDisplay'}>{displayCounty}, {displayTown}</p>
+      <p id={'scoreDisplay'}>Score: {score}</p>
+      <div id={'directionButtons'}>Direction Buttons</div>
+      <div id={'gameControlButtons'}>
         <button onClick={startGame} disabled={gameRunning}>
           Start
         </button>
-        <button disabled={!gameRunning}>Guess</button>
+        <button onClick={guess} disabled={!gameRunning}>Guess</button>
         <button onClick={quitGame} disabled={!gameRunning}>
           Quit
         </button>
       </div>
+      <GuessBox depth={guessDepth} setDepth={setGuessDepth} county={county} quit={quitGame} score={score} setScore={setScore}/>
     </div>
   );
 }
