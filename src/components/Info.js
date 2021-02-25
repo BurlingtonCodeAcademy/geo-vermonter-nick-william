@@ -1,3 +1,4 @@
+import './styles/Info.css'
 import { useState, useEffect } from "react";
 import borderData from "../data/border";
 import leafletPip from "leaflet-pip";
