@@ -9,7 +9,7 @@ function App() {
 
   return (
     <div>
-      <GameController center={center} />
+      <GameController center={center} setCenter={setCenter} />
     </div>
   );
 }
