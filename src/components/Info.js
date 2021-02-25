@@ -1,3 +1,4 @@
+import './styles/Info.css'
 import { useState } from "react";
 import borderData from "../data/border";
 

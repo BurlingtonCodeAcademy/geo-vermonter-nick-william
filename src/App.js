@@ -1,4 +1,4 @@
-import './App.css';
+import './components/styles/App.css';
 import { useState } from 'react'
 
 import GameController from "./components/GameController";
