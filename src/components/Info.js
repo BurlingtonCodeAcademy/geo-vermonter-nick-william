@@ -107,9 +107,9 @@ function Info(props) {
 
   return (
     <div id={"infoBox"}>
-      <div id={'latLongContainer'}>
-      <p id={'latDisplay'}>Lat: {displayLong}</p>
-      <p id={'longDisplay'}>Long: {displayLat}</p>
+      <div id={"latLongContainer"}>
+        <p id={"latDisplay"}>Lat: {displayLong}</p>
+        <p id={"longDisplay"}>Long: {displayLat}</p>
       </div>
       <p id={"countyTownDisplay"}>
         {displayCounty}, {displayTown}
@@ -164,17 +164,18 @@ function Info(props) {
           gameRunning={gameRunning}
           mapLines={mapLines}
         />
+        <button id={"returnButton"}
+          onClick={() => {
+            props.mapObj.setView([long, lat]);
+            setViewLong(long);
+            setViewLat(lat);
+          }}
+          disabled={!gameRunning}
+        >
+          Return
+        </button>
       </div>
-      <button
-        onClick={() => {
-          props.mapObj.setView([long, lat]);
-          setViewLong(long);
-          setViewLat(lat);
-        }}
-        disabled={!gameRunning}
-      >
-        Return
-      </button>
+
       <div id={"gameControlButtons"}>
         <button onClick={startGame} disabled={gameRunning}>
           Start

@@ -1,36 +1,30 @@
 
 body {
    background: url(../images/topographic.jpg) ;
-    
 }
 
 #infoBox {
-    
+    position: relative;
 }
 
 #latDisplay {
-    border: 1px solid black;
+    border: 3px solid black;
     width: 8vw;
     background: #002364;
     color:white;
-    box-shadow: 5px 10px 8px 10px #888888;
-
 }
 
 #longDisplay {
-    border: 1px solid black;
+    border: 3px solid black;
     width: 8vw;
     background: #002364;
     color:white;
-    box-shadow: 5px 10px 8px 10px #888888;
-
 }
 
 #latLongContainer {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    
 }
 
 #countyScore {
@@ -38,51 +32,69 @@ body {
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    
 }
 
 #countyTownDisplay {
-    
-    border: 1px solid black;
-    width: 75%;
+    border: 3px solid black;
     background: #002364;
     color:white;
-    box-shadow: 5px 10px 8px 10px #888888;
-
 }
 
 
 #scoreDisplay {
-    border: 1px solid black;
+    border: 3px solid black;
+    background: #002364;
+    color:white;
 }
 
 
 #directionButtons {
-    border: 1px solid black;
+    border: 3px solid black;
     margin-top: 10%;
     background: #002364;
     color:white;
-    box-shadow: 5px 10px 8px 10px #888888;
-
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
 }
 
+#moveNorth {
+    grid-column-start: 2;
+}
+
+#moveEast {
+    grid-column-start: 3;
+    grid-row-start: 2;
+}
+
+#moveSouth {
+    grid-column-start: 2;
+    grid-row-start: 3;
+}
+
+#moveWest {
+    grid-column-start: 1;
+    grid-row-start: 2;
+}
+
+#returnButton {
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 5;
+}
 
 #gameControlButtons {
     display: flex;
     justify-content: center;
     flex-direction: row;
     align-items: center;
-    border: 1px solid black;
+    border: 3px solid black;
     margin-top: 60%;
-    width: 75%;
     background: #002364;
     color:white;
-    box-shadow: 5px 10px 8px 10px #888888;
-
 }
 
 #gameContainer {
-    
     display: flex;
     flex-direction: row;
     border: 1px solid black
@@ -90,10 +102,22 @@ body {
 
 #infoContainer {
     width: 25vw;
-    
-
 }
 
 #header {
     height: 5vh;
+    color: red;
 }
+/*------------------- guess box---------------------- */
+
+#guessBox {
+    background: #002364;
+    color:white;
+    box-shadow: 5px 10px 8px 10px #888888;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+}
+
+
