@@ -1,6 +1,7 @@
 import { polyline } from "leaflet";
-
+//buttons to move map view in compass direction
 function DirectionButton(props) {
+    //change the view location of the map, add a line to the map, and change the score
     function changeView(changeLat, changeLong) {
         props.mapObj.setView([props.viewLong + changeLong, props.viewLat + changeLat]);
         let newLine = polyline([[props.viewLong, props.viewLat],[props.viewLong + changeLong, props.viewLat + changeLat]], {color: 'darkred', dashArray: '4'});
@@ -10,6 +11,7 @@ function DirectionButton(props) {
         props.setViewLong(props.viewLong + changeLong);
         props.setScore(props.score - 1);
     }
+    //determine which direction to move the map
     function move() {
         switch(props.direction){
             case 'North':
