@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-
+import"./styles/Info.css"
 import Map from './Map'
 import Info from './Info'
 
@@ -11,10 +11,15 @@ function GameController(props) {
   const [mark, setMark] = useState(props.center);
 
   return (
-    <div>
-      <Map center={props.center} mark={mark} zoom={zoom} setMapObj={setMapObj}/>
-      <Info setMark={setMark} mapObj={mapObj}/>
-    </div>
+    <>
+      <div id="header">geoVermonter</div>
+      <div id="gameContainer">
+        <Map center={props.center} mark={mark} zoom={zoom} setMapObj={setMapObj}/>
+        <div id="infoContainer">
+        <Info setMark={setMark} mapObj={mapObj}/>
+      </div>
+      </div>
+    </>
   );
 }
 

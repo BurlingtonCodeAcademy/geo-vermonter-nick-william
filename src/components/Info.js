@@ -74,10 +74,20 @@ function Info(props) {
   return (
     <div id={'infoBox'}>
       {/*<h3>Mark is inside border: {insideBorder ? 'true' : 'false'}</h3>*/}
-      <p id={'latLongDisplay'}>Lat: {displayLong}, Long: {displayLat}</p>
+      <div id={'latLongContainer'}>
+      <p id={'latDisplay'}>Lat: {displayLong}</p>
+      <p id={'longDisplay'}>Long: {displayLat}</p>
+      </div>
+      <div id='countyScore'>
       <p id={'countyTownDisplay'}>{displayCounty}, {displayTown}</p>
       <p id={'scoreDisplay'}>Score: {score}</p>
-      <div id={'directionButtons'}>Direction Buttons</div>
+      <div id={'directionButtons'}>
+      <button>North</button>
+      <button>South</button>
+      <button>East</button>
+      <button>West</button>
+      </div>
+      </div>
       <div id={'gameControlButtons'}>
         <button onClick={startGame} disabled={gameRunning}>
           Start
