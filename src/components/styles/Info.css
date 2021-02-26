@@ -1,15 +1,99 @@
+
 body {
-    background-color: beige;
-}
-
-h3 {
-
-}
-
-p {
-
-}
-
-button {
+   background: url(../images/topographic.jpg) ;
     
+}
+
+#infoBox {
+    
+}
+
+#latDisplay {
+    border: 1px solid black;
+    width: 8vw;
+    background: #002364;
+    color:white;
+    box-shadow: 5px 10px 8px 10px #888888;
+
+}
+
+#longDisplay {
+    border: 1px solid black;
+    width: 8vw;
+    background: #002364;
+    color:white;
+    box-shadow: 5px 10px 8px 10px #888888;
+
+}
+
+#latLongContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    
+}
+
+#countyScore {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+#countyTownDisplay {
+    
+    border: 1px solid black;
+    width: 75%;
+    background: #002364;
+    color:white;
+    box-shadow: 5px 10px 8px 10px #888888;
+
+}
+
+
+#scoreDisplay {
+    border: 1px solid black;
+}
+
+
+#directionButtons {
+    border: 1px solid black;
+    margin-top: 10%;
+    background: #002364;
+    color:white;
+    box-shadow: 5px 10px 8px 10px #888888;
+
+}
+
+
+#gameControlButtons {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    border: 1px solid black;
+    margin-top: 60%;
+    width: 75%;
+    background: #002364;
+    color:white;
+    box-shadow: 5px 10px 8px 10px #888888;
+
+}
+
+#gameContainer {
+    
+    display: flex;
+    flex-direction: row;
+    border: 1px solid black
+}
+
+#infoContainer {
+    width: 25vw;
+    
+
+}
+
+#header {
+    height: 5vh;
 }

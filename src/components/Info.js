@@ -107,9 +107,10 @@ function Info(props) {
 
   return (
     <div id={"infoBox"}>
-      <p id={"latLongDisplay"}>
-        Lat: {displayLong}, Long: {displayLat}
-      </p>
+      <div id={'latLongContainer'}>
+      <p id={'latDisplay'}>Lat: {displayLong}</p>
+      <p id={'longDisplay'}>Long: {displayLat}</p>
+      </div>
       <p id={"countyTownDisplay"}>
         {displayCounty}, {displayTown}
       </p>
