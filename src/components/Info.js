@@ -5,7 +5,7 @@ import leafletPip from "leaflet-pip";
 import { geoJSON } from "leaflet";
 import GuessBox from "./GuessBox";
 import DirectionButton from "./DirectionButton";
-
+//The sidebar and functionality
 function Info(props) {
   const [score, setScore] = useState(0);
   const [gameRunning, setGameRunning] = useState(false);
@@ -23,7 +23,7 @@ function Info(props) {
   const [shouldUpdate, setShouldUpdate] = useState(false);
   const [guessDepth, setGuessDepth] = useState(-1);
   const [mapLines, setMapLines] = useState([]);
-
+  //fetch geographical data about the random point
   useEffect(() => {
     if (shouldUpdate) {
       fetch(
@@ -38,7 +38,7 @@ function Info(props) {
       setShouldUpdate(false);
     }
   });
-
+  //start the game, set all values to initial values and generate valid random point
   function startGame() {
     if (props.mapObj) {
       setGameRunning(true);
@@ -46,6 +46,7 @@ function Info(props) {
       let randLat = 0;
       let randLong = 0;
       while (!inVermont) {
+        //did I mix up lat and long? I feel like I mixed up lat and long. It works though so if I did I did it consistently at least?
         randLat = (Math.random() * 2 + 71.5) * -1; //-73.5 to -71.5
         randLong = Math.random() * 3.4 + 41.7; //45.1 to 41.7
         inVermont =
@@ -66,11 +67,12 @@ function Info(props) {
       setShouldUpdate(true);
     }
   }
-
+  //end game and reveal information
   function quitGame() {
     setGameRunning(false);
     setDisplayLat(lat.toPrecision(4));
     setDisplayLong(long.toPrecision(4));
+    //send geolocation data and url to console (for debugging but nice to have anyway)
     console.log(geo);
     console.log(
       "https://nominatim.openstreetmap.org/reverse?lat=" +
@@ -80,12 +82,14 @@ function Info(props) {
         "&format=json"
     );
     setDisplayCounty(geo.address.county);
+    //lots of things the town can be referred to as in the json file
     setDisplayTown(
       geo.address.city ||
         geo.address.town ||
         geo.address.village ||
         geo.address.hamlet
     );
+    //clear lines on map
     mapLines.forEach((line) => {
       props.mapObj.removeLayer(line);
     });
@@ -93,7 +97,7 @@ function Info(props) {
       mapLines.pop();
     }
   }
-
+  //open guess box and make sure county and town data are loaded
   function guess() {
     setGuessDepth(1);
     setCounty(geo.address.county);

@@ -1,4 +1,5 @@
 function GuessBox(props) {
+  //stored jsx for county radio buttons in a function so it's collapsible
   function counties() {
     if (props.depth !== 1) {
       return null;
@@ -120,7 +121,7 @@ function GuessBox(props) {
       </div>
     );
   }
-
+  //find checked radio button and check if it matches the correct county, change score or quit game as appropriate
   function makeGuess() {
     let radioButtons = Array.from(document.getElementsByName("counties"));
     radioButtons.forEach((radio) => {
@@ -137,7 +138,7 @@ function GuessBox(props) {
       }
     });
   }
-
+  //stored jsx for buttons in function to make it easy to hide if guess box is not open
   function buttons() {
     if (props.depth !== 1) {
       return null;
