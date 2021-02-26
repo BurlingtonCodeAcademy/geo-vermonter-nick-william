@@ -11,7 +11,7 @@ function GameController(props) {
 
   return (
     <>
-      <div id="header">geoVermonter</div>
+      <div id="header">GeoVermonter</div>
       <div id="gameContainer">
         <Map center={props.center} mark={mark} setMapObj={setMapObj}/>
         <div id="infoContainer">
